@@ -12,5 +12,17 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  let modifiedTutorials = tutorials.map(splitSentence)
+  return modifiedTutorials
+}
+
+function splitSentence(sentence) {
+  let split = sentence.split(" ") // gives you array of words ["what", "does"]
+  let newArray = []
+  for (let word of split) {
+    let newWord = word.replace(word[0], word[0].toUpperCase()) // returns capitalized word
+    newArray.push(newWord) //puts all the modified words inside a new array
+  }
+  let joinedArray = newArray.join(" ")
+  return joinedArray
 }
